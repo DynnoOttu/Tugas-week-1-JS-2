@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const name = [
+            "Abigail", "Alexandra", "Alison",
+            "Amanda", "Angela", "Bella",
+            "Carol", "Caroline", "Carolyn",
+            "Deirdre", "Diana", "Elizabeth",
+            "Ella", "Faith", "Olivia", "Penelope"
+        ]
+
+        let pencarianNama = (pencarian, jumlah, hasil) => {
+            let filterName = name.filter((data) =>
+                data.toLowerCase().includes(
+                    pencarian
+                ) //includes() melakukan pencarian (peka huruf besar/kecil) apakah string berisi atau mengandung karakter yang ditentukan.
+            );
+            return hasil(filterName, jumlah)
+        };
+
+        let callback = (filterName, jumlah) => filterName.slice(0, jumlah);
+        document.writeln(pencarianNama('an', 3, callback).join(', '))
+    </script>
+</body>
+
+</html>

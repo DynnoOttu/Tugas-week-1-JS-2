@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const SeleksiNilai = (nilaiAwal, nilaiAhkir, dataArray) => {
+            if (nilaiAwal < nilaiAhkir) {
+                if (dataArray.length > 5) {
+                    data(nilaiAwal, nilaiAhkir, dataArray)
+                } else {
+                    console.log(`Jumlah data dalam array harus lebih dari 5`)
+                }
+            } else {
+                console.log(`Nilai akhir harus lebih besar dari nilai awal`)
+            }
+        }
+
+        const data = (nilaiAwal, nilaiAhkir, dataArray) => {
+            const hasil = dataArray.filter((data2) => {
+                    if (data2 >= nilaiAwal && data2 <= nilaiAhkir) {
+                        return data2;
+                    }
+                })
+                .sort(function (a, b) { //untuk mwngurutkan isi array
+                    return a - b //perbandingan angkas
+                })
+            if (hasil.length > 0) {
+                console.log(hasil)
+            } else {
+                console.log(`Nilai tidak ditemukan`)
+            }
+        }
+
+        SeleksiNilai(5, 20, [2, 25, 4, 14, 17, 30, 8])
+        SeleksiNilai(15, 3, [2, 25, 4, 14, 17, 30, 8]);
+        SeleksiNilai(5, 17, [2, 25, 4]);
+        SeleksiNilai(5, 17, [2, 25, 4, 1, 30, 18])
+    </script>
+</body>
+
+</html>
